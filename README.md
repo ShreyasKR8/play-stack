@@ -1,2 +1,2 @@
-# play-stack
-A shopping site for games.
+# PlayStack
+A shopping website for games. - *In progress*
