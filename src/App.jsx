@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import ProductCard from './Components/ProductCard.jsx'
 import './App.css';
 
 function App() {
@@ -28,6 +29,11 @@ function App() {
 
     return (
         <>
+            <div className="cards-section">
+                {gamesData.map((gameData, index) => {
+                    return <ProductCard product={gameData} key={index} extraClassName={"card" + (index + 1)} />
+                })}
+            </div>
         </>
     )
 }
