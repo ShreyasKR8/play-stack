@@ -18,7 +18,6 @@ function App() {
                         id: gameData.id,
                         name: gameData.name,
                         image: gameData.background_image,
-                        description: gameData.description_raw,
                         price: Math.floor(Math.random() * 100) + 1 // Random price for demo
                     };
                 }
