@@ -6,19 +6,20 @@ function ProductPage() {
     const [gamesData, setGamesData] = useState([]);
 
     useEffect(() => {
-        fetch("/api/games/")
+        fetch("/api/games-by-genre")
             .then(res => res.json())
-            .catch(err => {
-                console.error("Error fetching games:", err);
-            })
             .then(data => {
-                // console.log(data)
                 const formattedData = data.map(gameData => {
                     return {
-                        id: gameData.id,
-                        name: gameData.name,
-                        image: gameData.background_image,
-                        price: Math.floor(Math.random() * 100) + 1 // Random price for demo
+                        genre: gameData.genre,
+                        games: gameData.games.map(game => {
+                            return {
+                                id: game.id,
+                                name: game.name,
+                                image: game.background_image,
+                                price: Math.floor(Math.random() * 100) + 1
+                            }
+                        }),
                     };
                 }
                 )
@@ -30,9 +31,19 @@ function ProductPage() {
         <>
             <h1 className="page-title">Games</h1>
             <div className="cards-section">
-                {gamesData.map((gameData, index) => {
-                    return <ProductCard product={gameData} key={index} extraClassName={"card" + (index + 1)} />
-                })}
+                {
+                    gamesData.map((gameData, index) => {
+                        return <div className='genre-section' key={index}>
+                            <h1>{gameData.genre}</h1>
+                            <div className='cards-section'>
+                                {gameData.games.map(game => {
+                                    return (<ProductCard product={game} key={gameData.genre + game.id} extraClassName={"card" + (index + 1)} />);
+                                })
+                                }
+                            </div>
+                        </div>
+                    })
+                }
             </div>
         </>
     );

@@ -14,16 +14,28 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 const RAWG_API_KEY = process.env.RAWG_API_KEY
 // const PLATFORMS = [49]; // NES, SNES, Genesis, etc.
 console.log("API KEY in games.js:", RAWG_API_KEY); // Check if the API key is being read correctly
-router.get("/", async (req, res) => {
-    console.log("URL:"); // Log the URL to check if it's correct
-    const url = `https://api.rawg.io/api/games?platforms=49&page_size=20&key=${RAWG_API_KEY}`;
 
-    // Fetch games from RAWG API
+const genres = ["action", "adventure", "rpg", "sports", "strategy"];
+
+router.get("/games-by-genre", async (req, res) => {
+    console.log("URL:"); // Log the URL to check if it's correct
+    // const url = `https://api.rawg.io/api/games?platforms=49&page_size=20&key=${RAWG_API_KEY}`;
+    const baseUrl = `https://api.rawg.io/api/games`;
+
     try {
-        console.log("Fetching URL:", url);
-        const response = await fetch(url);
-        const data = await response.json();
-        res.json(data.results);
+        // Fetch games from RAWG API
+        const fetchGamesByGenre = async (genre) => {
+            const url = `${baseUrl}?genres=${genre}&platforms=49&page_size=10&key=${RAWG_API_KEY}`
+            console.log("Fetching URL:", url);
+            const response = await fetch(url);
+            const data = await response.json();
+            return { genre, games: data.results };
+        }
+        
+        const promises = genres.map(fetchGamesByGenre);
+        const gamesByGenre = await Promise.all(promises);
+
+        res.json(gamesByGenre);
     } catch (err) {
         res.status(500).json({ error: "Failed to fetch games" });
     }

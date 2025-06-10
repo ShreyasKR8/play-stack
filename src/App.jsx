@@ -5,14 +5,7 @@ function App() {
 
     return (
         <>
-            <h1>Hello from the main page of the app!</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/product-page">Games</Link>
-                    </li>
-                </ul>
-            </nav>
+            <p>Welcome to the Play Stack!</p>
         </>
     )
 }

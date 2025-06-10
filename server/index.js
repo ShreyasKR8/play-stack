@@ -15,7 +15,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware to parse JSON requests
-app.use("/api/games", gamesRouter);
+app.use("/api", gamesRouter);
 app.use(express.static(path.join(__dirname, "..", "dist")));
 
 // Serve the React app for all other routes
