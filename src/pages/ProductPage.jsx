@@ -10,8 +10,9 @@ function ProductPage() {
             .then(res => res.json())
             .then(data => {
                 const formattedData = data.map(gameData => {
+                    const gamesGenre = capitalizeFirstLetter(gameData.genre);
                     return {
-                        genre: gameData.genre,
+                        genre: gamesGenre,
                         games: gameData.games.map(game => {
                             return {
                                 id: game.id,
@@ -27,21 +28,26 @@ function ProductPage() {
             });
     }, []);
 
+    function capitalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     return (
         <>
             <h1 className="page-title">Games</h1>
-            <div className="cards-section">
+            <div className="products-section">
                 {
                     gamesData.map((gameData, index) => {
-                        return <div className='genre-section' key={index}>
-                            <h1>{gameData.genre}</h1>
+                        if(gameData.games.length === 0) return null; // Skip empty genres
+                        return (<div className='genre-section' key={index}>
+                            <h2 className='genre-header'>{gameData.genre}</h2>
                             <div className='cards-section'>
                                 {gameData.games.map(game => {
                                     return (<ProductCard product={game} key={gameData.genre + game.id} extraClassName={"card" + (index + 1)} />);
                                 })
                                 }
                             </div>
-                        </div>
+                        </div>)
                     })
                 }
             </div>

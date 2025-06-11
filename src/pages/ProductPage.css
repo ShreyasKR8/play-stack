@@ -12,17 +12,32 @@ body {
     color: #333;
 }
 
+.products-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.genre-header {
+    text-align: center;
+}
+
 .cards-section {
+    display: flex;
+    overflow-x: scroll;
+    gap: 50px;
+
+}
+
+/* .cards-section {
     font-family: "Underdog", system-ui;
     padding-top: 20px;
-    /* overflow-y: auto; */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
     gap: 50px;
     height: 70vh;
     margin: 30px;
-}
+} */
 
 .product-card {
     display: flex;
@@ -31,6 +46,7 @@ body {
     align-items: center;
     border-radius: 8px;
     padding: 8px 4px;
+    /* width: 500px; */
     /* background: #f8b400; */
     background: rgb(131, 212, 131);
 }
