@@ -2,6 +2,7 @@
 
 body {
     background:  #faf5e4;
+    margin: 0;
 }
 
 .page-title {
@@ -15,17 +16,37 @@ body {
 .products-section {
     display: flex;
     flex-direction: column;
+    margin: 20px;
 }
 
 .genre-header {
     text-align: center;
 }
 
+.genre-section {
+    position: relative;
+}
+
 .cards-section {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: hidden;
     gap: 50px;
+}
 
+.scroll-right-btn {
+    position: absolute;
+    right: 0;
+    height: 85%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #faf5e4;
+}
+
+.scroll-left-btn {
+    position: absolute;
+    left: 0;
+    height: 85%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #faf5e4;
 }
 
 /* .cards-section {
@@ -40,6 +61,8 @@ body {
 } */
 
 .product-card {
+    min-width: 280px; /* or width: 220px */
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
