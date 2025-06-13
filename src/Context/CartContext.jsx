@@ -9,6 +9,13 @@ export const CartProvider = ({ children }) => {
         setCartItems(prev => [...prev, item]);
     }
 
+    // function removeFromCart(item) {
+    //     setCartItems(prevCartItems => {
+    //         let updatedCartItems = prevCartItems.splice()
+
+    //     }
+    // }
+
     return(
         <CartContext.Provider value={{ cartItems, addToCart }}>
             {children}

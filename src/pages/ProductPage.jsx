@@ -60,12 +60,12 @@ function ProductPage() {
                         return (<div className='genre-section' key={index}>
                             <h2 className='genre-header'>{gameData.genre}</h2>
                             <div className={`cards-section cards-section-${index}`} extraclassname={`cards-section-${index}`}>
-                                <button className='scroll-left-btn' onClick={() => sideScroll(`cards-section-${index}`, "left", 10, 300, 10)}>&lt;</button>
+                                <button className='scroll-btn scroll-left-btn' onClick={() => sideScroll(`cards-section-${index}`, "left", 10, 300, 10)}>&lt;</button>
                                 {gameData.games.map(game => {
                                     return (<ProductCard product={game} key={gameData.genre + game.id} className={"card" + (index + 1)} />);
                                 })
                                 }
-                                <button className='scroll-right-btn' onClick={() => sideScroll(`cards-section-${index}`,"right", 10, 300, 10)}>&gt;</button>
+                                <button className='scroll-btn scroll-right-btn' onClick={() => sideScroll(`cards-section-${index}`,"right", 10, 300, 10)}>&gt;</button>
                             </div>
                         </div>)
                     })

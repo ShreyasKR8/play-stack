@@ -2,6 +2,7 @@ import ProductPage from "../pages/ProductPage";
 import App from "../App";
 import Layout from "../Components/Layout";
 import ErrorPage from "../pages/ErrorPage";
+import CartPage from "../pages/CartPage";
 
 const layoutElement = <Layout />; // Navbar is here
 
@@ -13,7 +14,7 @@ const routes = [
     children: [
       { index: true, element: <App /> },
       { path: "product-page", element: <ProductPage /> },
-    //   { path: "cart-page", element: <CartPage /> }, // Uncomment when CartPage is implemented
+      { path: "cart-page", element: <CartPage /> }, // Uncomment when CartPage is implemented
     ],
   },
 ];

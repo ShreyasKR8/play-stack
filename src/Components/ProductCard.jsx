@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../context/CartContext";
 
 function ProductCard({ product }) {
     const [quantity, setQuantity] = useState(1);
     let cost = product.price * quantity;
 
+    const { addToCart } = useContext(CartContext);
     
     function onClickedIncrementBtn() {
         setQuantity(current => current + 1);
@@ -17,6 +19,15 @@ function ProductCard({ product }) {
         }
     }
 
+    function handleAddToCart() {
+        const item = {
+            name: product.name,
+            cost: product.price,
+            quantity: quantity,
+        }
+        addToCart(item);
+    }
+
     return (
         <div className="product-card">
             <img src={product.image} alt={product.name} className="card-image" />
@@ -27,7 +38,7 @@ function ProductCard({ product }) {
                 <p>{quantity}</p>
                 <button className="qty-btn" onClick={() => onClickedIncrementBtn()}>+</button>
             </div>
-            <button className="add-cart-btn">Add to Cart</button>
+            <button className="add-cart-btn" onClick={handleAddToCart}>Add to Cart</button>
         </div>
     );
 }
