@@ -9,15 +9,19 @@ export const CartProvider = ({ children }) => {
         setCartItems(prev => [...prev, item]);
     }
 
-    // function removeFromCart(item) {
-    //     setCartItems(prevCartItems => {
-    //         let updatedCartItems = prevCartItems.splice()
+    function removeItemFromCart(itemId) {
+        setCartItems(prevCartItems => {
+            const updatedCartItems = prevCartItems.filter(cartItem => cartItem.id !== itemId);
+            return updatedCartItems;
+        });
+        }
 
-    //     }
-    // }
+    function removeAllItemsFromCart() {
+        setCartItems([]);
+    }
 
     return(
-        <CartContext.Provider value={{ cartItems, addToCart }}>
+        <CartContext.Provider value={{ cartItems, addToCart, removeItemFromCart, removeAllItemsFromCart }}>
             {children}
         </CartContext.Provider>
     )

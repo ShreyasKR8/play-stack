@@ -1,16 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Underdog&display=swap');
 
 body {
     background:  #faf5e4;
     margin: 0;
-    font-family: "Underdog", system-ui;
-}
-
-.page-title {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 2rem;
-    color: #333;
 }
 
 .products-section {

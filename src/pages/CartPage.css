@@ -1,0 +1,36 @@
+
+.cart-item-section {
+    background-color:bisque;
+    margin: 10px 30px;
+    border-radius: 10px;
+    width: 1000px;
+    /* height: 400px; */
+}
+
+.cart-item-card {
+    /* width: 500px; */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+/* .item-info {
+    width: fit-content;
+} */
+
+.item-name {
+    width: 200px; /* also enforces col alignment for other items */
+}
+
+.delete-all-items-btn {
+    /* align-content: center; */
+    margin: 10px 30px;
+    width: 80px;
+    height: 25px
+}
+
+.remove-from-cart-btn {
+    width: 80px;
+    height: 30px;
+    align-self: center;
+}

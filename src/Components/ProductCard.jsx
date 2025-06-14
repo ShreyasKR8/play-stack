@@ -3,7 +3,6 @@ import { CartContext } from "../context/CartContext";
 
 function ProductCard({ product }) {
     const [quantity, setQuantity] = useState(1);
-    let cost = product.price * quantity;
 
     const { addToCart } = useContext(CartContext);
     
@@ -21,6 +20,7 @@ function ProductCard({ product }) {
 
     function handleAddToCart() {
         const item = {
+            id: product.id,
             name: product.name,
             cost: product.price,
             quantity: quantity,
@@ -32,7 +32,7 @@ function ProductCard({ product }) {
         <div className="product-card">
             <img src={product.image} alt={product.name} className="card-image" />
             <h3>{product.name}</h3>
-            <p className="cost">${cost}</p>
+            <p className="cost">${product.price}</p>
             <div className="quantity-selection">
                 <button className="qty-btn" onClick={() => onClickedDecrementBtn()}>-</button>
                 <p>{quantity}</p>
