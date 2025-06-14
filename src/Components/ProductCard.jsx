@@ -8,13 +8,13 @@ function ProductCard({ product }) {
     
     function onClickedIncrementBtn() {
         setQuantity(current => current + 1);
-        cost = product.price * (quantity + 1);
+        // cost = product.price * (quantity + 1);
     }
 
     function onClickedDecrementBtn() {
         if(quantity > 1) {
             setQuantity(current => current - 1);
-            cost = product.price * (quantity - 1);
+            // cost = product.price * (quantity - 1);
         }
     }
 
@@ -38,7 +38,8 @@ function ProductCard({ product }) {
                 <p>{quantity}</p>
                 <button className="qty-btn" onClick={() => onClickedIncrementBtn()}>+</button>
             </div>
-            <button className="add-cart-btn" onClick={handleAddToCart}>Add to Cart</button>
+            {/* <button className="add-cart-btn" onClick={handleAddToCart}>Add to Cart</button> */}
+            <button class="add-cart-btn btn-bottom-stripe btn-bottom-stripe--orange" onClick={handleAddToCart}>Add to cart</button>
         </div>
     );
 }
