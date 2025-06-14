@@ -6,7 +6,19 @@ export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
 
     function addToCart(item) {
-        setCartItems(prev => [...prev, item]);
+        setCartItems(prevCartItems => {
+            const itemIndex = prevCartItems.findIndex(cartItem => cartItem.id === item.id);
+            //if item already exists in cart, update quantity.
+            if(itemIndex != -1) {
+                const updatedItems = prevCartItems;
+                let updatedItem = prevCartItems[itemIndex];
+                updatedItem.quantity += item.quantity;
+                updatedItems.splice(itemIndex, 1, updatedItem);
+                return updatedItems;
+            }
+
+            return [...prevCartItems, item];
+        });
     }
 
     function removeItemFromCart(itemId) {

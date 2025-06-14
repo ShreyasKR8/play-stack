@@ -18,7 +18,7 @@ function ProductPage() {
                                 id: game.id,
                                 name: game.name,
                                 image: game.background_image,
-                                price: Math.floor(Math.random() * 100) + 1
+                                price: (game.id % 10) + 10
                             }
                         }),
                     };
