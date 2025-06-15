@@ -115,6 +115,16 @@ body {
     padding: 4px 10px;
 }
 
+@keyframes stripe-slide {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+
 .add-cart-btn:hover .btn-slide-show-text1 {
     margin-left: 65px;
 }

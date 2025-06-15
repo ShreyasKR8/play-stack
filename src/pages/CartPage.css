@@ -1,4 +1,29 @@
 
+.cart-section {
+    display: flex;
+}
+
+.item-col-names {
+    display: flex;
+    /* justify-content: space-between; */
+    padding: 0px 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgba(214, 175, 128, 0.5);
+}
+
+.game-col {
+    margin-left: 30px;
+}
+
+.cost-col {
+    margin-left: 325px;
+}
+
+.qty-col {
+    margin-left: 190px;
+}
+
 .cart-item-section {
     background-color:bisque;
     margin: 10px 30px;
@@ -13,24 +38,108 @@
     justify-content: space-between;
     padding: 10px 30px;
 }
-
-/* .item-info {
-    width: fit-content;
-} */
-
+   
 .item-name {
-    width: 200px; /* also enforces col alignment for other items */
+    width: 200px;
+    /* also enforces col alignment for other items */
 }
 
 .delete-all-items-btn {
     /* align-content: center; */
     margin: 10px 30px;
-    width: 80px;
-    height: 25px
+    width: 100px;
+    height: 35px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.delete-all-items-btn:hover {
+    background-color: red;
 }
 
 .remove-from-cart-btn {
     width: 80px;
     height: 30px;
     align-self: center;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Underdog", system-ui;
+}
+
+.remove-from-cart-btn:hover {
+    background-color: red;
+}
+
+.order-summary-section {
+    background-color:bisque;
+    border-radius: 10px;
+    margin-top: 10px;
+    height: fit-content;
+}
+
+.order-summary-section header {
+    background-color: rgba(214, 175, 128, 0.5);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: black;
+}
+
+.cost-details {
+    padding: 10px 30px;
+}
+
+.buy-items-btn {
+    cursor: pointer;
+    background-color: green;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-family: "Underdog", system-ui;
+}
+
+.btn-fill-bottom {
+  border: 2px solid rgb(84, 187, 108);
+  outline: none;
+  background: none;
+  text-align: center;
+  display: inline-block;
+  width: 200px;
+  height: 45px;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  color: rgb(84, 187, 108);
+  transition: color 0.5s;
+  z-index: 1;
+}
+
+.btn-fill-bottom::before {
+  content: "";
+  position: absolute;
+  z-index: -1; /* ensures it's behind the text */
+  height: 200px;
+  width: 300px;
+  border-radius: 50%;
+  top: 100%;
+  left: 100%;
+  transition: top 0.7s ease, left 0.7s ease;
+}
+
+.btn-fill-bottom:hover {
+  color: white;
+}
+
+.btn-fill-bottom:hover::before {
+  top: -40px;
+  left: -40px;
+}
+
+.btn-fill-bottom--green::before {
+  background-color: rgb(84, 187, 108);
 }
