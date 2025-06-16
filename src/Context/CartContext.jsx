@@ -1,9 +1,21 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { saveCartToLocalStorage, loadCartFromLocalStorage } from '../Components/storage.js'
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
+
+    // Load cart items from local storage when the component mounts
+    useEffect(() => {
+        const savedCartItems = loadCartFromLocalStorage();
+        if(savedCartItems.length === 0) {
+            return;
+        }
+
+        setCartItems(savedCartItems);
+    }, []);
+
 
     function getTotalCost() {
         let totalCost = 0;
@@ -18,37 +30,46 @@ export const CartProvider = ({ children }) => {
             const itemIndex = prevCartItems.findIndex(cartItem => cartItem.id === item.id);
             //if item already exists in cart, update quantity.
             if(itemIndex != -1) {
-                const updatedItems = prevCartItems;
-                let updatedItem = prevCartItems[itemIndex];
+                const updatedItems = [...prevCartItems];
+                const updatedItem = { ...updatedItems[itemIndex] };
                 updatedItem.quantity += item.quantity;
-                updatedItems.splice(itemIndex, 1, updatedItem);
-                return updatedItems;
+                updatedItems[itemIndex] = updatedItem;
+                return setAndSaveCartItems(updatedItems);
             }
-
-            return [...prevCartItems, item];
+            
+            //if item does not exist in cart, add it.
+            return setAndSaveCartItems([...prevCartItems, item]);
         });
     }
     
     function updateQuantity(itemId, newQuantity) {
         setCartItems(prevCartItems => {
-            return prevCartItems.map(cartItem => {
+            const updatedCartItems = prevCartItems.map(cartItem => {
                 if(cartItem.id === itemId) {
                     return {...cartItem, quantity: newQuantity}
                 }
                 return cartItem;
-            })
+            });
+
+            return setAndSaveCartItems(updatedCartItems);
         });
     }
-
+    
     function removeItemFromCart(itemId) {
         setCartItems(prevCartItems => {
             const updatedCartItems = prevCartItems.filter(cartItem => cartItem.id !== itemId);
-            return updatedCartItems;
+            return setAndSaveCartItems(updatedCartItems);
         });
-        }
+    }
 
     function removeAllItemsFromCart() {
+        saveCartToLocalStorage([]);
         setCartItems([]);
+    }
+
+    function setAndSaveCartItems(updatedCartItems){
+        saveCartToLocalStorage(updatedCartItems);
+        return updatedCartItems;
     }
 
     return(
