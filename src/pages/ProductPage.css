@@ -129,6 +129,10 @@ body {
     margin-left: 65px;
 }
 
+.add-cart-btn:active {
+    margin-left: 65px;
+}
+
 .btn-bottom-stripe {
     border: 0px;
     background: rgb(255, 255, 255);
