@@ -21,11 +21,31 @@ nav ul li {
     cursor: pointer;
 }
 
-nav ul li:hover {
-    text-decoration: underline;
-}
-
 nav ul li a {
     color: white;
     text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline dotted  rgb(254, 210, 155) 2px;
+    text-underline-offset: 4px;
+}
+
+.cart-link-li-item {
+    position: relative;
+}
+
+.items-count-display {
+    position: absolute;
+    top: -22px;
+    right: -11px;
+    font-size: small;
+    border-radius: 10px;
+    padding: 0px 2px;
+    background-color: green;
+}
+
+.active-tab {
+  font-weight: bold;
+  border-bottom: 2px solid rgb(254, 210, 155);
 }

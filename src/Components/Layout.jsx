@@ -1,8 +1,11 @@
 import { Outlet } from "react-router-dom";
 import './Layout.css';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
 
 export default function Layout() {
+    const { getItemsCount } = useContext(CartContext);
     console.log("🔁 Navbar rendered");
     return (
         <div className="layout">
@@ -11,13 +14,14 @@ export default function Layout() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/">Home</Link>
+                            <NavLink to="/" className={ ({ isActive }) => isActive ? "active-tab" : ""}>Home</NavLink>
                         </li>
                         <li>
-                            <Link to="/product-page">Games</Link>
+                            <NavLink to="/product-page" className={ ({ isActive }) => isActive ? "active-tab" : ""}>Games</NavLink>
                         </li>
-                        <li>
-                            <Link to="/cart-page">Cart</Link>
+                        <li className="cart-link-li-item">
+                            <NavLink to="/cart-page" className={ ({ isActive }) => isActive ? "active-tab" : ""}>Cart</NavLink>
+                            <p className="items-count-display">{getItemsCount()}</p>
                         </li>
                     </ul>
                 </nav>
