@@ -28,8 +28,7 @@
 }
 
 .delete-all-items-btn {
-    /* align-self: center; */
-    margin-left: 480px;
+    margin: 10px 0 20px 480px;
     width: 100px;
     height: 35px;
     background-color: black;
@@ -38,7 +37,6 @@
     border-radius: 4px;
     cursor: pointer;
     font-family: "Underdog", system-ui;
-
 }
 
 .delete-all-items-btn:hover {
@@ -50,11 +48,10 @@
     margin: 10px 30px;
     border-radius: 10px;
     width: 1000px;
-    /* height: 400px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cart-item-card {
-    /* width: 500px; */
     display: flex;
     justify-content: space-between;
     padding: 10px 30px;
@@ -64,7 +61,6 @@
     width: 200px;
     /* also enforces col alignment for other items */
 }
-
 
 .remove-from-cart-btn {
     width: 80px;
@@ -87,6 +83,7 @@
     border-radius: 10px;
     margin-top: 10px;
     height: fit-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .order-summary-section header {
