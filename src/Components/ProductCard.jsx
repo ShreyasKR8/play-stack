@@ -38,7 +38,7 @@ function ProductCard({ product }) {
                 <p>{quantity}</p>
                 <button className="qty-btn" onClick={() => onClickedIncrementBtn()}>+</button>
             </div>
-            <button className="add-cart-btn btn-bottom-stripe btn-bottom-stripe--orange" onClick={handleAddToCart}>Add to cart</button>
+            <button className="add-cart-btn btn-bottom-stripe btn-bottom-stripe--orange btn-click-effect" onClick={handleAddToCart}>Add to cart</button>
         </div>
     );
 }

@@ -129,9 +129,9 @@ body {
     margin-left: 65px;
 }
 
-.add-cart-btn:active {
+/* .add-cart-btn:active {
     margin-left: 65px;
-}
+} */
 
 .btn-bottom-stripe {
     border: 0px;
@@ -196,4 +196,26 @@ body {
 
 .btn-bottom-stripe--orange:hover {
     background-color: rgb(254, 194, 63);
+}
+
+.btn-click-effect:active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffe066;
+  opacity: 0.4;
+  z-index: 0;
+  animation: clickFlash 1s ease;
+}
+
+@keyframes clickFlash {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 0;
+  }
 }
