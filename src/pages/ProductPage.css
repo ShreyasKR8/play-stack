@@ -10,9 +10,25 @@ body {
     margin: 20px;
 }
 
-.genre-header {
-    text-align: center;
+.genre-title {
+  font-family: "Underdog", system-ui;
+  /* font-size: 1.5rem; */
+  text-align: center;
+  margin: 2rem 0 1rem;
+  color: #35412b;
+  position: relative;
 }
+
+.genre-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background-color: #597d4d;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
 
 .genre-section {
     position: relative;
@@ -63,13 +79,13 @@ body {
     border-radius: 8px;
     padding: 8px 4px;
     background: rgb(131, 212, 131);
+    margin: 10px 0;
 }
 
 .product-card:hover {
     transform: translateY(-4px); /* Moves the card slightly upward */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adds a shadow for the floating effect */
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
-    cursor: pointer; /* Changes cursor to pointer */
 }
 
 .card-image {

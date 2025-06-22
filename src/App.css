@@ -5,19 +5,94 @@ body {
     margin: 0;
 }
 
-.page-title {
+/* .page-title {
     text-align: center;
     margin-top: 20px;
     font-size: 2rem;
     color: #333;
+} */
+
+.page-title {
+  font-family: "Underdog", system-ui;
+  font-size: 2.3rem;
+  text-align: center;
+  margin: 2.5rem 0 1.5rem;
+  color: #2d2d2d;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.page-title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 5px;
+  background-color: #84c784;
+  margin: 0.6rem auto 0;
+  border-radius: 3px;
 }
 
 
+.home-container {
+    padding: 2rem;
+    text-align: center;
+    font-family: "Underdog", cursive;
+}
+
+.main-heading {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.cta-section {
+    margin: 20px 0;
+}
+
+.cta-button {
+    background-color: #54bb6c;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #469d59;
+}
+
+.features {
+    margin-top: 6rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* 👈 center the text inside */
+}
+
+.features h2 {
+    margin-bottom: 1rem;
+}
+
+.features ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.features li {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
 footer {
-    bottom: 6px;
-    left: 42%;
     width: fit-content;
-    margin: 0 auto;
+    margin: 130px auto 0;
 }
 
 footer a {
