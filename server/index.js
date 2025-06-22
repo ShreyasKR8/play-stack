@@ -22,7 +22,7 @@ app.use("/api", gamesRouter);
 app.use(express.static(path.join(__dirname, "..", "dist")));
 
 // Serve the React app for all other routes
-app.get("*", (req, res) => {
+app.get("\\*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "dist", "index.html"));
 });
 
