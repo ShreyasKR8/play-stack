@@ -6,7 +6,7 @@ function ProductPage() {
     const [gamesData, setGamesData] = useState([]);
 
     useEffect(() => {
-        fetch("/api/games-by-genre")
+        fetch(`${import.meta.env.VITE_API_BASE_URL}/api/games-by-genre`)
             .then(res => res.json())
             .then(data => {
                 const formattedData = data.map(gameData => {

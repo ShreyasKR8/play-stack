@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 import gamesRouter from "./routes/games.js";
+import cors from 'cors';
 
 // Load environment variables from .env file
 const __filename = fileURLToPath(import.meta.url);
@@ -15,6 +16,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware to parse JSON requests
+app.use(cors());
+app.use(express.json());
 app.use("/api", gamesRouter);
 app.use(express.static(path.join(__dirname, "..", "dist")));
 
