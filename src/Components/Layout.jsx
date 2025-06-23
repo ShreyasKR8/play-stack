@@ -6,6 +6,8 @@ import { useContext } from "react";
 
 export default function Layout() {
     const { getItemsCount } = useContext(CartContext);
+    const cartItemsCount = getItemsCount();
+
     console.log("🔁 Navbar rendered");
     return (
         <div className="layout">
@@ -21,7 +23,7 @@ export default function Layout() {
                         </li>
                         <li className="cart-link-li-item">
                             <NavLink to="/cart-page" className={ ({ isActive }) => isActive ? "active-tab" : ""}>Cart</NavLink>
-                            <p className="items-count-display">{getItemsCount()}</p>
+                            {(getItemsCount.length > 0) && <p className="items-count-display">{cartItemsCount}</p>}
                         </li>
                     </ul>
                 </nav>
