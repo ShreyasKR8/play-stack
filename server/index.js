@@ -9,7 +9,7 @@ import cors from 'cors';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const result = dotenv.config({ path: path.resolve(__dirname, ".env") });
-console.log("API KEY in index.js:", result.parsed.RAWG_API_KEY); // Check if the API key is being read correctly
+// console.log("API KEY in index.js:", result.parsed.RAWG_API_KEY); // Check if the API key is being read correctly
 
 // Initialize the Express application
 const app = express();
