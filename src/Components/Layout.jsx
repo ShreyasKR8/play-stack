@@ -23,7 +23,7 @@ export default function Layout() {
                         </li>
                         <li className="cart-link-li-item">
                             <NavLink to="/cart-page" className={ ({ isActive }) => isActive ? "active-tab" : ""}>Cart</NavLink>
-                            {(getItemsCount > 0) && <p className="items-count-display">{cartItemsCount}</p>}
+                            {(cartItemsCount > 0) && <p className="items-count-display">{cartItemsCount}</p>}
                         </li>
                     </ul>
                 </nav>
