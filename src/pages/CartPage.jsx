@@ -5,7 +5,7 @@ import './CartPage.css'
 
 function CartPage() {
     const { cartItems, removeAllItemsFromCart, getTotalCost } = useContext(CartContext);
-    console.log(cartItems);
+    // console.log(cartItems);
 
     const itemsTotalCost = getTotalCost();
     let deliveryCost = 2;
