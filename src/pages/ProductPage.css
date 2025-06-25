@@ -19,6 +19,10 @@ body {
   position: relative;
 }
 
+.genre-title:first-of-type {
+  margin-top: 0;
+}
+
 .genre-title::after {
   content: "";
   display: block;
@@ -149,7 +153,7 @@ body {
     margin-left: 65px;
 } */
 
-.btn-bottom-stripe {
+.btn-bottom-stripe, .bottom-stripe {
     border: 0px;
     background: rgb(255, 255, 255);
     font-style: inherit;
@@ -179,6 +183,12 @@ body {
     position: relative;
 }
 
+.bottom-stripe {
+    background: #faf5e4;
+    /* width: 800px; */
+}
+
+
 .btn-bottom-stripe::after {
     content: "";
     display: block;
@@ -189,6 +199,20 @@ body {
     left: 0px;
     bottom: 0px;
     background-size: 7px 7px;
+}
+
+.bottom-stripe::after {
+    content: "";
+    display: block;
+    height: 13px;
+    width: 100%;
+    backface-visibility: hidden;
+    position: absolute;
+    left: -5px;
+    bottom: 0px;
+    background-size: 7px 7px;
+    background-image: repeating-linear-gradient(45deg, rgb(255, 255, 255), rgb(255, 255, 255) 1px, transparent 2px, transparent 5px);
+    animation: 12s linear infinite forwards stripe-slide;
 }
 
 .btn-bottom-stripe:hover {
@@ -205,9 +229,18 @@ body {
     border: 2px solid rgb(254, 194, 63);
 }
 
+.bottom-stripe--orange {
+    color: rgb(250, 182, 35);
+    border-radius: 0px;
+}
+
 .btn-bottom-stripe--orange::after {
-    border-top: 2px solid rgb(254, 194, 63);
-    background-image: repeating-linear-gradient(45deg, rgb(254, 194, 63), rgb(254, 194, 63) 1px, transparent 2px, transparent 5px);
+    border: 1px solid rgb(254, 194, 63);
+    background-image: repeating-linear-gradient(45deg, rgb(255, 185, 34), rgb(255, 183, 27) 1px, transparent 2px, transparent 5px);
+}
+
+.bottom-stripe--orange::after {
+    background-image: repeating-linear-gradient(45deg, rgb(255, 185, 34), rgb(255, 183, 27) 1px, transparent 2px, transparent 5px);
 }
 
 .btn-bottom-stripe--orange:hover {
@@ -225,6 +258,14 @@ body {
   opacity: 0.4;
   z-index: 0;
   animation: clickFlash 1s ease;
+}
+
+.loading-animation {
+    width: 290px; 
+    text-align: center;
+    text-transform: capitalize;
+    margin: 200px auto;
+    font-size: 32px;
 }
 
 @keyframes clickFlash {

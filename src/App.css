@@ -16,7 +16,7 @@ body {
   font-family: "Underdog", system-ui;
   font-size: 2.3rem;
   text-align: center;
-  margin: 2.5rem 0 1.5rem;
+  margin: 1rem 0 0px;
   color: #2d2d2d;
   letter-spacing: 1px;
   position: relative;
@@ -28,7 +28,7 @@ body {
   width: 100px;
   height: 5px;
   background-color: #84c784;
-  margin: 0.6rem auto 0;
+  margin: 0.2rem auto 0;
   border-radius: 3px;
 }
 

@@ -4,6 +4,7 @@ import './ProductPage.css';
 
 function ProductPage() {
     const [gamesData, setGamesData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         // console.log(`${import.meta.env.VITE_API_BASE_URL}`)
@@ -23,9 +24,14 @@ function ProductPage() {
                             }
                         }),
                     };
-                }
-                )
+                });
                 setGamesData(formattedData);
+            }).finally(() => {
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Error fetching games data:", err);
+                setLoading(false);
             });
     }, []);
 
@@ -50,6 +56,15 @@ function ProductPage() {
         }, speed);
     }
 
+    //Display a loading animation while fetching data
+    if(loading) {
+        return <div className="loading-animation bottom-stripe bottom-stripe--orange">Fetching games...</div>;
+    }
+
+    // This is to handle the case where the API returns an empty array or no games
+    if (!loading && gamesData.length === 0) {
+        return <div className="no-games-message">No games available at the moment.</div>;
+    }
 
     return (
         <>
