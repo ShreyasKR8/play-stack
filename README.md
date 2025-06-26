@@ -4,6 +4,7 @@ A full-stack web application for browsing and buying classic NES cartridge games
 
 ---
 
+ 🔗 **Live Demo**: [Play Stack](https://play-stack-ivory.vercel.app/)
 
 ## Tech Stack
 
