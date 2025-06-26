@@ -32,14 +32,16 @@ play-stack/
 │   ├── Components/
 │   ├── context/
 │   ├── routes/
+│   ├── pages/
 │   └── main.jsx
 ├── server/
 │   ├── index.js
 │   ├── routes/
 │   └── .env
-├── dist/                 # Vite build output
 ├── .env                 # Frontend (VITE_API_BASE_URL)
+├── index.html
 ├── package.json
+├── vite.config.js
 ```
 
 ---
